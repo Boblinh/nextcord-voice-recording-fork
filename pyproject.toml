@@ -85,9 +85,9 @@ format-jinja = """
 {%- if distance == 0 -%}
     {{ serialize_pep440(base, stage, revision) }}
 {%- elif stage is none -%}
-    {{ serialize_pep440(base, stage, revision, metadata=["g"+commit]) }}
+    {{ serialize_pep440(base, stage, revision) }}.post{{ distance }}+g{{ commit }}
 {%- else -%}
-    {{ serialize_pep440(base, stage, distance, metadata=["g"+commit]) }}
+    {{ serialize_pep440(base, stage, distance) }}+g{{ commit }}
 {%- endif -%}
 """
 style = "pep440"
